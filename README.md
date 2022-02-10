@@ -7,7 +7,9 @@ Created using Godot 3.4.2
 
 Assets are provided by Kenney.nl, provided under a CC0 1.0 Public Domain License.
 
-The explosion spritesheet was released into the public domain by StumpyStrust
+The explosion spritesheet was released into the public domain by StumpyStrust.
+
+The background was provided by ESA/Hubble & NASA.
 ## References
 Asteroids, Atari, Inc., November 1979
 ## Future Development
