@@ -12,6 +12,8 @@ Assets are provided by [Kenney.nl](https://kenney.nl/assets/space-shooter-extens
 
 The explosion spritesheet was released into the public domain by [StumpyStrust](https://opengameart.org/content/explosion-sheet)
 
+The star cluster background was released by [NASA, ESA, J. Mack, and J. Madrid et al](https://esahubble.org/images/potw1849a/).
+
 ## References
 None
 
