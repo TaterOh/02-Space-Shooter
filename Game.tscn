@@ -1,3 +1,104 @@
-[gd_scene format=2]
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://UI/HUD.gd" type="Script" id=1]
+[ext_resource path="res://UI/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Asteroid/Asteroid.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player/Player_Container.gd" type="Script" id=6]
 
 [node name="Game" type="Node2D"]
+__meta__ = {
+"_editor_description_": "The root of the scene"
+}
+
+[node name="Player_Container" type="Node2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="Asteroid_Container" type="Node2D" parent="."]
+
+[node name="Asteroid" parent="Asteroid_Container" instance=ExtResource( 4 )]
+position = Vector2( 100, 100 )
+
+[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource( 4 )]
+position = Vector2( 800, 500 )
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="Enemy_Container" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemy_Container" instance=ExtResource( 5 )]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUD" type="Control" parent="UI"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="UI/HUD"]
+margin_right = 1024.0
+margin_bottom = 30.0
+text = "Score = 0"
+valign = 1
+
+[node name="Time" type="Label" parent="UI/HUD"]
+margin_right = 1024.0
+margin_bottom = 30.0
+text = "Time: 0"
+align = 2
+valign = 1
+
+[node name="Lives" type="Label" parent="UI/HUD"]
+margin_top = 570.0
+margin_right = 1024.0
+margin_bottom = 600.0
+text = "Lives: 5"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="UI/HUD"]
+autostart = true
+
+[node name="Menu" type="Control" parent="UI"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="UI/Menu"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.25098 )
+
+[node name="Label" type="Label" parent="UI/Menu"]
+margin_right = 1024.0
+margin_bottom = 400.0
+text = "Game Paused"
+align = 1
+valign = 1
+
+[node name="Restart" type="Button" parent="UI/Menu"]
+margin_left = 462.0
+margin_top = 350.0
+margin_right = 562.0
+margin_bottom = 390.0
+text = "Restart Game"
+
+[node name="Quit" type="Button" parent="UI/Menu"]
+margin_left = 462.0
+margin_top = 400.0
+margin_right = 562.0
+margin_bottom = 440.0
+text = "Quit"
+
+[connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_Timer_timeout"]
+[connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_Restart_pressed"]
+[connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_Quit_pressed"]

@@ -1,24 +1,22 @@
-# 02-Space-Shooter
-Created as a school project 10 February 2022.
+# Exercise-02d-Menu-and-HUD
 
-A Space Shooter game similar to Asteroids.
+Exercise for MSCH-C220
+
+A basic space-shooter arcade game, created in Godot.
+
 ## Implementation
-Created using Godot 3.4.2
 
-Assets are provided by Kenney.nl, provided under a CC0 1.0 Public Domain License.
+Created using [Godot 3.4.2](https://godotengine.org/download)
 
-The explosion spritesheet was released into the public domain by StumpyStrust.
+Assets are provided by [Kenney.nl](https://kenney.nl/assets/space-shooter-extension), provided under a [CC0 1.0 Public Domain License](https://creativecommons.org/publicdomain/zero/1.0/).
 
-The background was provided by ESA/Hubble & NASA.
-## Features
-Added friction to the ship for better handling.
+The explosion spritesheet was released into the public domain by [StumpyStrust](https://opengameart.org/content/explosion-sheet)
 
-A Background image.
-
-A moving camera.
 ## References
-Asteroids, Atari, Inc., November 1979
-## Future Development
 None
+
+## Future Development
+Advanced features?
+
 ## Created by
 Thadeus Sylvester II
