@@ -1,9 +1,10 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var small_speed = 3.0
-var initial_speed = 3.0
+var small_speed = 200.0
+var initial_speed = 200.0
 var health = 1
+var max_speed = 500
 
 onready var Asteroid_small = load("res://Asteroid/Asteroid_small.tscn")
 var small_asteroids = [Vector2(0,-30),Vector2(30,30),Vector2(-30,30)]
@@ -12,7 +13,8 @@ func _ready():
 	velocity = Vector2(0,initial_speed*randf()).rotated(PI*2*randf())
 
 func _physics_process(_delta):
-	position = position + velocity
+	velocity = velocity.normalized() * clamp(velocity.length(), 0, max_speed)
+	velocity = move_and_slide(velocity, Vector2.ZERO)
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)
 

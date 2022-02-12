@@ -3,9 +3,11 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 
 var rotation_speed = 5.0
-var speed = 5.0
+var speed = 10.0
 var max_speed = 400.0
 var health = 1
+var friction = 0.015
+var invincible = false
 
 var Effects = null
 onready var Explosion = load("res://Effects/Explosion.tscn")
@@ -13,9 +15,10 @@ onready var Explosion = load("res://Effects/Explosion.tscn")
 onready var Bullet = load("res://Player/Bullet.tscn")
 var nose = Vector2(0,-60)
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	velocity = velocity + get_input()*speed
 	velocity = velocity.normalized() * clamp(velocity.length(), 0, max_speed)
+	velocity -= velocity * friction
 	velocity = move_and_slide(velocity, Vector2.ZERO)
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)
@@ -39,11 +42,15 @@ func get_input():
 	if Input.is_action_pressed("right"):
 		rotation_degrees = rotation_degrees + rotation_speed
 	return to_return.rotated(rotation)
-	
+
 func damage(d):
-	health -= d
+	if not invincible:
+		health -= d
 	if health <= 0:
-		Global.update_lives(-1)
+		if not invincible:
+			Global.update_lives(-1)
+		invincible = true
+		$Invin_Timer.start()
 		Effects = get_node_or_null("/root/Game/Effects")
 		if Effects != null:
 			var explosion = Explosion.instance()
@@ -56,3 +63,6 @@ func damage(d):
 func _on_Area2D_body_entered(body):
 	if body.name != "Player":
 		damage(100)
+
+func _on_Invin_Timer_timeout():
+	invincible = false

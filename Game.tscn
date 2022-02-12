@@ -1,32 +1,51 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/StarBackground.jpg" type="Texture" id=3]
 [ext_resource path="res://Asteroid/Asteroid.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Player/Player_Container.gd" type="Script" id=6]
+[ext_resource path="res://Enemy/Vacuum.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Asteroid/Asteroid_Container.gd" type="Script" id=8]
+[ext_resource path="res://Enemy/Enemy_Container.gd" type="Script" id=9]
 
 [node name="Game" type="Node2D"]
 __meta__ = {
 "_editor_description_": "The root of the scene"
 }
 
+[node name="Background" type="Sprite" parent="."]
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 3 )
+centered = false
+
 [node name="Player_Container" type="Node2D" parent="."]
 script = ExtResource( 6 )
 
 [node name="Asteroid_Container" type="Node2D" parent="."]
+script = ExtResource( 8 )
 
 [node name="Asteroid" parent="Asteroid_Container" instance=ExtResource( 4 )]
 position = Vector2( 100, 100 )
 
-[node name="Asteroid2" parent="Asteroid_Container" instance=ExtResource( 4 )]
-position = Vector2( 800, 500 )
-
-[node name="Effects" type="Node2D" parent="."]
+[node name="Timer" type="Timer" parent="Asteroid_Container"]
+wait_time = 5.0
+autostart = true
 
 [node name="Enemy_Container" type="Node2D" parent="."]
+script = ExtResource( 9 )
 
 [node name="Enemy" parent="Enemy_Container" instance=ExtResource( 5 )]
+
+[node name="Vacuum" parent="Enemy_Container" instance=ExtResource( 7 )]
+position = Vector2( 217, 236 )
+
+[node name="Timer" type="Timer" parent="Enemy_Container"]
+wait_time = 5.0
+autostart = true
+
+[node name="Effects" type="Node2D" parent="."]
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -99,6 +118,8 @@ margin_right = 562.0
 margin_bottom = 440.0
 text = "Quit"
 
+[connection signal="timeout" from="Asteroid_Container/Timer" to="Asteroid_Container" method="_on_Timer_timeout"]
+[connection signal="timeout" from="Enemy_Container/Timer" to="Enemy_Container" method="_on_Timer_timeout"]
 [connection signal="timeout" from="UI/HUD/Timer" to="UI/HUD" method="_on_Timer_timeout"]
 [connection signal="pressed" from="UI/Menu/Restart" to="UI/Menu" method="_on_Restart_pressed"]
 [connection signal="pressed" from="UI/Menu/Quit" to="UI/Menu" method="_on_Quit_pressed"]

@@ -16,4 +16,5 @@ func update_lives():
 
 
 func _on_Timer_timeout():
-	Global.update_time(-1)
+	Global.update_time(1)
+	Global.update_score(1)
