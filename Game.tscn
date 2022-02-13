@@ -93,9 +93,14 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="UI/Menu"]
-margin_right = 1024.0
-margin_bottom = 600.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 1876.0
+margin_bottom = 1035.0
 color = Color( 0, 0, 0, 0.25098 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="UI/Menu"]
 margin_right = 1024.0
@@ -103,13 +108,19 @@ margin_bottom = 400.0
 text = "Game Paused"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Restart" type="Button" parent="UI/Menu"]
-margin_left = 462.0
-margin_top = 350.0
-margin_right = 562.0
-margin_bottom = 390.0
+anchor_left = 11.55
+anchor_top = 8.75
+anchor_right = 14.05
+anchor_bottom = 9.75
 text = "Restart Game"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Quit" type="Button" parent="UI/Menu"]
 margin_left = 462.0
@@ -117,6 +128,9 @@ margin_top = 400.0
 margin_right = 562.0
 margin_bottom = 440.0
 text = "Quit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [connection signal="timeout" from="Asteroid_Container/Timer" to="Asteroid_Container" method="_on_Timer_timeout"]
 [connection signal="timeout" from="Enemy_Container/Timer" to="Enemy_Container" method="_on_Timer_timeout"]
