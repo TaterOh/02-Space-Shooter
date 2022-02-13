@@ -31,7 +31,7 @@ script = ExtResource( 8 )
 position = Vector2( 100, 100 )
 
 [node name="Timer" type="Timer" parent="Asteroid_Container"]
-wait_time = 8.0
+wait_time = 6.0
 autostart = true
 
 [node name="Enemy_Container" type="Node2D" parent="."]
@@ -43,7 +43,7 @@ script = ExtResource( 9 )
 position = Vector2( 217, 236 )
 
 [node name="Timer" type="Timer" parent="Enemy_Container"]
-wait_time = 10.0
+wait_time = 6.0
 autostart = true
 
 [node name="Buffs_Container" type="Node2D" parent="."]

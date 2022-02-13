@@ -89,7 +89,7 @@ func get_input():
 		$Shield.hide()
 	if Input.is_action_pressed("shoot") and not is_shielding:
 		shoot()
-	if Input.is_action_pressed("shoot_secondary") and not is_shielding:
+	elif Input.is_action_pressed("shoot_secondary") and not is_shielding:
 		shoot_secondary()
 	return to_return.rotated(rotation)
 

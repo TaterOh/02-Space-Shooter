@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
-var speed = 600.0
+var speed = 700.0
 var damage = 2
 
 onready var Explosion = load("res://Effects/Explosion.tscn")

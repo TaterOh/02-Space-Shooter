@@ -6,7 +6,7 @@ var direction = Vector2(1.5,0)
 var wobble = 30.0
 
 
-var health = 1
+var health = 2
 
 var Effects = null
 onready var Bullet = load("res://Enemy/Bullet.tscn")

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var speed = 5
+var speed = 6
 var health = 1
 var turn_speed = 0.05
 var Effects = null
@@ -17,7 +17,7 @@ func damage(d):
 			explosion.global_position = global_position
 		queue_free()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var Player = get_node_or_null("/root/Game/Player_Container/Player")
 	if Player != null:
 		var d = lerp_angle(global_rotation, global_position.angle_to_point(Player.global_position) - PI/2, turn_speed)

@@ -2,7 +2,7 @@ extends Area2D
 
 var velocity = Vector2(500,0)
 var base_velocity = velocity
-var damage = 4
+var damage = 3
 
 var target = null
 var Effects = null

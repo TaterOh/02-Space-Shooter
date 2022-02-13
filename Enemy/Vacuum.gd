@@ -1,18 +1,21 @@
 extends KinematicBody2D
 
-var mass = 55000
-var health = 2
-var initial_speed = 100.0
+var mass = 65000
+var health = 3
+var speed = 3
+var turn_speed = 0.03
 var move = Vector2(10,10)
 var push_force = 1000
 
 var Effects = null
 onready var Explosion = load("res://Effects/Explosion.tscn")
 
-func _ready():
-	move = Vector2(0,initial_speed*randf()).rotated(PI*2*randf())
-
 func _physics_process(delta):
+	var Player = get_node_or_null("/root/Game/Player_Container/Player")
+	if Player != null:
+		var d = lerp_angle(global_rotation, global_position.angle_to_point(Player.global_position) - PI/2, turn_speed)
+		rotation = d
+		position += Vector2(0,-speed).rotated(d)
 	position += move * delta
 	position.x = wrapf(position.x, 0, Global.VP.x)
 	position.y = wrapf(position.y, 0, Global.VP.y)

@@ -10,9 +10,9 @@ config_version=4
 
 [application]
 
-config/name="Menu and HUD"
+config/name="Space Shooter"
 run/main_scene="res://UI/Main_Menu.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/ship_E.png"
 
 [autoload]
 
