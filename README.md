@@ -2,7 +2,9 @@
 
 Exercise for MSCH-C220
 
-A basic space-shooter arcade game, created in Godot.
+A basic space-shooter arcade game, created in Godot on 12 February 2022.
+
+Surive and blow up enemies and asteroids!
 
 ## Implementation
 
