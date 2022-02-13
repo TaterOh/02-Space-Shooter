@@ -28,6 +28,8 @@ A background
 
 A following camera
 
+Friction to the player so its easier to control
+
 More enemies (Gravitator, Rocket)
 
 Two primary weapons (PewPew, Shotgun) shot with the space bar
