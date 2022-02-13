@@ -14,6 +14,22 @@ The explosion spritesheet was released into the public domain by [StumpyStrust](
 
 The star cluster background was released by [NASA, ESA, J. Mack, and J. Madrid et al](https://esahubble.org/images/potw1849a/).
 
+## Features
+
+A background
+
+A following camera
+
+More enemies (Gravitator, Rocket)
+
+Two primary weapons (PewPew, Shotgun) shot with the space bar
+
+A secondary weapon (Missile) shot with the control key
+
+A shield (hold shift to use)
+
+Gaining points based on time alive
+
 ## References
 None
 
