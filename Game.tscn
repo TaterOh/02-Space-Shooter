@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/HUD.gd" type="Script" id=1]
 [ext_resource path="res://UI/Menu.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Enemy/Vacuum.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Asteroid/Asteroid_Container.gd" type="Script" id=8]
 [ext_resource path="res://Enemy/Enemy_Container.gd" type="Script" id=9]
+[ext_resource path="res://Weapons/Buffs_Container.gd" type="Script" id=10]
 
 [node name="Game" type="Node2D"]
 __meta__ = {
@@ -30,7 +31,7 @@ script = ExtResource( 8 )
 position = Vector2( 100, 100 )
 
 [node name="Timer" type="Timer" parent="Asteroid_Container"]
-wait_time = 5.0
+wait_time = 8.0
 autostart = true
 
 [node name="Enemy_Container" type="Node2D" parent="."]
@@ -42,8 +43,11 @@ script = ExtResource( 9 )
 position = Vector2( 217, 236 )
 
 [node name="Timer" type="Timer" parent="Enemy_Container"]
-wait_time = 5.0
+wait_time = 10.0
 autostart = true
+
+[node name="Buffs_Container" type="Node2D" parent="."]
+script = ExtResource( 10 )
 
 [node name="Effects" type="Node2D" parent="."]
 
