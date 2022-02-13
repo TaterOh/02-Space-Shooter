@@ -37,10 +37,10 @@ A shield (hold shift to use)
 Gaining points based on time alive
 
 ## References
-None
+Asteroids by Atari Inc.
 
 ## Future Development
-Advanced features?
+None
 
 ## Created by
 Thadeus Sylvester II
